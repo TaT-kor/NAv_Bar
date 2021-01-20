@@ -1,0 +1,101 @@
+:root {
+    --text-color: #f0f4f5;
+    --background-color: #263343;
+    --accent-color: #d49466;
+} /* CSS 변수 : 이를 이용하면 후에 색을 바꾸고 싶어도 일일이 찾아가며 바꾸지 않아도 된다. */
+
+body {
+    margin : 0;
+    box-sizing:border-box; /* 박스모델에 패팅과 보더의 사이즈를 아이템 너비와 높이에 포함해 달라고 말하는 것 */
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.navbar {
+    display:flex;
+    justify-content: space-between; /* 플렉스 요소의 수평 방향 정렬 방식을 설정 /  space-between : 플렉스 요소는 요소들 사이에만 여유 공간을 두고 배치 */
+    align-items: center;
+    background-color: #263343;
+    padding : 8px 12px;
+}
+
+.navbar__logo {
+    font-size: 24px;
+    color: ar(--text-color);
+}
+
+.navbar__logo i {
+    color: #d49466;
+}
+
+.navbar__menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.navbar__menu li {
+    padding: 8px 12px; /* 마우스를 클릭할 수 있는 영역이 커짐 */
+}
+
+.navbar__menu li:hover {
+    background-color: #d49466;
+    border-radius: 4px;
+}
+
+.navbar__icons {
+    list-style: none;
+    color: var(--text-color);
+    display: flex;
+    padding-left: 0;
+}
+
+.navbar__icons li {
+    padding: 8px 12px;
+}
+
+.navbar__toogleBtn {
+    display: none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: #d49466;
+}
+
+@media screen and (max-width: 769px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 24px;
+    }
+
+    .navbar__menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar__menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar__icons {
+        display: none;
+        justify-content: center;
+        width:100%;
+    }
+
+    .navbar__toogleBtn {
+        display: block;
+    }
+
+    .navbar__menu.active, .navbar__icons.active {
+        display: flex;
+    }
+}
